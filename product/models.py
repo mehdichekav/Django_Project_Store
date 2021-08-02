@@ -4,8 +4,8 @@ from django.utils.translation import gettext as _
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=200, verbose_name=_('name'))
-    slug = models.SlugField(max_length=200, unique=True, verbose_name=_('slug'))
+    name = models.CharField(max_length=200, verbose_name=_('name'), help_text=_('enter your name'))
+    slug = models.SlugField(max_length=200, unique=True, verbose_name=_('slug'), help_text=_('slug in project'))
 
     class Meta:
         ordering = ('name',)
@@ -16,14 +16,15 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name=_('products'))
-    name = models.CharField(max_length=200, verbose_name=_('name'))
-    slug = models.SlugField(max_length=200, unique=True, verbose_name=_('slug'))
-    image = models.ImageField(upload_to='products/%Y/%m/%d/')
-    description = models.TextField(verbose_name=_('description'))
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('price'))
-    discount = models.IntegerField(verbose_name=_('discount'))
-    available = models.BooleanField(default=True, verbose_name=_('available'))
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name=_('products'), help_text=_('category'))
+    name = models.CharField(max_length=200, verbose_name=_('name'), help_text=_('enter your name'))
+    slug = models.SlugField(max_length=200, unique=True, verbose_name=_('slug'), help_text=_('slug in project'))
+    image = models.ImageField(upload_to='products/%Y/%m/%d/', help_text=_('enter your image'))
+    description = models.TextField(verbose_name=_('description'), help_text=_('Additional product description'))
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('price'), help_text=_('price'))
+    discount = models.IntegerField(verbose_name=_('discount'), help_text=_('discount'))
+    available = models.BooleanField(default=True, verbose_name=_('available'), help_text=_('This product is available '
+                                                                                           'in the store'))
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
