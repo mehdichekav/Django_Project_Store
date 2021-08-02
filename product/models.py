@@ -16,12 +16,13 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name=_('products'))
     name = models.CharField(max_length=200, verbose_name=_('name'))
     slug = models.SlugField(max_length=200, unique=True, verbose_name=_('slug'))
     image = models.ImageField(upload_to='products/%Y/%m/%d/')
     description = models.TextField(verbose_name=_('description'))
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('price'))
+    discount = models.IntegerField(verbose_name=_('discount'))
     available = models.BooleanField(default=True, verbose_name=_('available'))
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -35,3 +36,7 @@ class Product(models.Model):
     # def get_absolute_url(self):
     #     return reverse('product:product_detail', args=[self.slug, ])
     #
+    def final_price(self):
+        disc = self.discount or 0
+        discounted_price = self.price * disc // 100
+        return self.price - discounted_price
