@@ -2,4 +2,9 @@
 
 {% block content %}
     <p>login page</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="login">
+    </form>
 {% endblock %}
