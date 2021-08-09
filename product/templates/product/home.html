@@ -13,23 +13,63 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {% endblock %}
-{% block content %}
-
-
-<div class="container-fluid bgimg min-vh-75">
-    <div class="row pr-lg-5 mr-3 header-text">
+{#{% block content %}#}
+{##}
+{##}
+{#<div class="container-fluid bgimg min-vh-75">#}
+{#    <div class="row pr-lg-5 mr-3 header-text">#}
 {#        <p style=" position: absolute; left: 15px; color: #05137d ; padding-top: 3vh">Store Dez</p>#}
-
-
-    </div>
-    <div class="row ">
+{##}
+{##}
+{#    </div>#}
+{#    <div class="row ">#}
 {#        <p style="position: absolute; left: 40px; color: #030202; ">Open from 9am to 11pm</p><hr/>#}
-        <img class="fa-text-width " src="{% static 'img/ممانعت-از-تغییر-عکس-پس-زمینه-2-600x364.jpg' %}" alt="My image" style="width: 40%; height: 40%;
-            ">
+{#        <img class="fa-text-width " src="{% static 'img/ممانعت-از-تغییر-عکس-پس-زمینه-2-600x364.jpg' %}" alt="My image" style="width: 40%; height: 40%;#}
+{#            ">#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#</div>#}
+{#{% endblock %}#}
+{##}
+{% block content %}
+{% for category in categories %}
+    <a href="{{ category.get_absolute_url }}" class="btn btn-primary">{{ category.name }}</a>
+{% endfor %}
+
+    <br/><br/><br/>
+
+
+{% for product in products %}
+ <div class="card" style="width: 18rem; display: inline-block;margin-left: 2rem">
+    <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <a href="{{ product.get_absolute_url }}" class="card-title">{{ product.name }}</a>
+
 
     </div>
+ </div>
 
-
-</div>
+{% endfor %}
+{# <p class="card-text">Some electronic items available in the store.</p>#}
+{#        <p class="card-text">{{ product.price }}</p>#}
+{#        <p class="card-text">{{ product.final_price }}</p>#}
+{#        <a href="#" class="btn btn-primary"> Go </a>#}
+{#<div class="container-fluid bgimg min-vh-75">#}
+{#    <div class="row pr-lg-5 mr-3 header-text">#}
+{#        <p style=" position: absolute; left: 15px; color: #05137d ; padding-top: 3vh">Store Dez</p>#}
+{##}
+{##}
+{#    </div>#}
+{#    <div class="row ">#}
+{#        <p style="position: absolute; left: 40px; color: #030202; ">Open from 9am to 11pm</p><hr/>#}
+{#        <img  class="fa-text-width " src="{% static 'img/ممانعت-از-تغییر-عکس-پس-زمینه-2-600x364.jpg' %}" alt="My image" style="width: 40%; height: 40%;#}
+{#            ">#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#</div>#}
 {% endblock %}
 

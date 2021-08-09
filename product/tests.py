@@ -46,4 +46,5 @@ class ProductTest(TestCase):
         )
 
     def test1_final_price(self):
-        self.assertEqual(self.product1.price , 18000)
+        self.assertEqual(self.product2.price, 18000)
+        self.product2.save()
