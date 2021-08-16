@@ -1,9 +1,11 @@
+
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
 
 from .forms import UserCreationForm, UserChangeForm
-from .models import User, Address
+from .models import User, Address, Profile
 
 
 # admin.site.register(Register)
@@ -30,6 +32,10 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone', 'address']
+
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
 admin.site.register(Address)
+admin.site.register(Profile, ProfileAdmin)

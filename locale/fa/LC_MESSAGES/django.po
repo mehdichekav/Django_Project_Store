@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-02 11:21+0430\n"
+"POT-Creation-Date: 2021-08-02 16:28+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,32 @@ msgstr ""
 msgid "slug"
 msgstr ""
 
+#: .\product\models.py:19 .\product\views.py:9 .\product\views.py:15
+msgid "products"
+msgstr ""
+
+#: .\product\models.py:19
+msgid "category"
+msgstr ""
+
+#: .\product\models.py:20
+msgid "enter your name"
+msgstr ""
+
+#: .\product\models.py:21
+msgid "slug in project"
+msgstr ""
+
+#: .\product\models.py:22
+msgid "enter your image"
+msgstr ""
+
 #: .\product\models.py:23
 msgid "description"
+msgstr ""
+
+#: .\product\models.py:23
+msgid "Additional product description"
 msgstr ""
 
 #: .\product\models.py:24
@@ -35,15 +59,19 @@ msgid "price"
 msgstr ""
 
 #: .\product\models.py:25
+msgid "discount"
+msgstr ""
+
+#: .\product\models.py:26
 msgid "available"
+msgstr ""
+
+#: .\product\models.py:26
+msgid "This product is available in the store"
 msgstr ""
 
 #: .\product\templates\product\home.html:6
 msgid "home"
-msgstr ""
-
-#: .\product\views.py:9 .\product\views.py:14
-msgid "products"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7

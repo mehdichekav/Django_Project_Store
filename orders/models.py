@@ -10,7 +10,7 @@ from django.utils.translation import gettext as _
 
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders',
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name=_('orders'),
                              verbose_name=_('user'), help_text=_('name is user'))
     created = models.DateField(auto_now_add=True, verbose_name=_('created'))
     updated = models.DateField(auto_now=True, verbose_name=_('updated'))

@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.conf import settings
 from core.models import BaseModel
 from .managers import MyUserManager
+from django.db.models.signals import post_save
 
 from django.utils.translation import gettext as _
 
@@ -43,7 +44,7 @@ class User(AbstractBaseUser):
 #     pass
 
 class Address(BaseModel):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('owner'), help_text=_('enter your owner'))
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner', verbose_name=_('owner'), help_text=_('enter your owner'))
     lat = models.FloatField(blank=True, null=True, verbose_name=_('lat'), help_text=_('enter your lat'))
     lng = models.FloatField(blank=True, null=True, verbose_name=_('lng'), help_text=_('enter your lng'))
     country = models.CharField(max_length=50, verbose_name=_('country'), help_text=_('enter your country'))
@@ -59,5 +60,24 @@ class Address(BaseModel):
     #     ordering = ('city',)
     #     verbose_name_plural = 'Address'
 
-    # def __str__(self):
-    #     return f"{self.description}"
+    def __str__(self):
+        return str(self.owner)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('user'))
+    phone = models.CharField(max_length=100, verbose_name=_('phone'), help_text=_('enter your phone'))
+    address = models.TextField(verbose_name=_('address'),
+                                   help_text=_('enter your address'), null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
+
+
+def save_profile_user(sender, **kwargs):
+    if kwargs['created']:
+        profile_user = Profile(user=kwargs['instance'])
+        profile_user.save()
+
+
+post_save.connect(save_profile_user, sender=User)

@@ -22,3 +22,5 @@ class BaseModel(models.Model):
 
 class TestModel(BaseModel):
     pass
+
+

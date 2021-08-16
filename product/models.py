@@ -24,7 +24,7 @@ class Discount(BaseModel):
     title = models.CharField(max_length=100, verbose_name=_('title'), help_text=_('enter your tittle'))
     Deduction_from_the_price = models.IntegerField( verbose_name=_('Deduction_from_the_price'),
                                                    help_text=_('enter your Deduction_from_the_price'))  # کسر از قیمت
-    Cash = models.IntegerField( verbose_name=_('Cash'),
+    Cash = models.IntegerField(verbose_name=_('Cash'),
                                help_text=_('enter your Cash'))  # نقدی
     description = models.TextField(verbose_name=_('description'), help_text=_('Additional product description'))
 

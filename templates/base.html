@@ -5,22 +5,22 @@
 
 <head>
     <meta charset="UTF-8">
-{#    <title> {% trans 'home' %} {% block title %}{% endblock %}</title>#}
+    {#    <title> {% trans 'home' %} {% block title %}{% endblock %}</title>#}
 
     <title> {% block title %}{% endblock %} </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="theme-color" content="#9d4edd">
-
- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    {#    <link href="{{ url_for("static",filename="bootstrap.min.css") }}" rel="stylesheet">#}
+    <meta name="theme-color" content="#9d4edd">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://gorbeh.ikacc.ir/gorbeh/css/gorbeh-icons.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <style>
+        .pointer{
+            cursor: pointer;
+        }
+    </style>
 
     {% block css %}
         {% block costom_tag %} {% endblock %}
@@ -62,7 +62,7 @@
 
 {#---------------------------------------#}
 {% include 'inc/navbar.html' %}
-<div id="content" class="jumbotron" >
+<div id="content" class="jumbotron">
     {% include 'inc/messages.html' %}
     {% block content %}
 
@@ -91,8 +91,8 @@
 {##}
 {#    {% endblock %}#}
 {#</div>#}
-<h3>Address Store :</h3><hr/>
-<p>Khozestan - Dezful - meydan Moghavemt</p>
+{#<h3>Address Store :</h3><hr/>#}
+{#<p>Khozestan - Dezful - meydan Moghavemt</p>#}
 
 {#----------------------------------------------#}
 
@@ -114,12 +114,12 @@
 {#            $('.topnav a').removeClass('active');#}
 {#            $(this).addClass("active");#}
 {#        });#}
-        {#$('#myTopnav a').on('click','a', function () {#}
-        {#    console.log("in");#}
-        {#    $('#myTopnav').find('a.active').removeClass('active');#}
-        {#    $("#{{request.endpoint}}").addClass("active");#}
-        {#    $(this).addClass('active');#}
-        {# });#}
+{#$('#myTopnav a').on('click','a', function () {#}
+{#    console.log("in");#}
+{#    $('#myTopnav').find('a.active').removeClass('active');#}
+{#    $("#{{request.endpoint}}").addClass("active");#}
+{#    $(this).addClass('active');#}
+{# });#}
 {#    });#}
 {##}
 {#</script>#}
@@ -127,5 +127,8 @@
 {#$(document).ready(function () {#}
 {#$("#{{request.endpoint}}").addClass("active"); })#}
 {#</script>#}
+{% block extrajs %}
+
+{% endblock %}
 </body>
 </html>

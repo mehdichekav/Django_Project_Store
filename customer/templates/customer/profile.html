@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>profile</h1><hr/>
+<table>
+{% csrf_token %}
+<tr>
+    <th>first name: {{ profile.user.first_name }}</th>
+</tr>
+    <tr>
+    <th>last name: {{ profile.user.last_name }}</th>
+</tr>
+<tr>
+    <th>phone: {{ profile.user.phone }}</th>
+</tr>
+<tr>
+    <th>Email: {{ profile.user.email }}</th>
+</tr>
+<tr>
+    <th>Birth of Date: {{ profile.user.date_of_birth }}</th>
+</tr>
+<tr>
+    <th>Address: {{ profile.address }}</th>
+</tr>
+</table>
+    <a href="{% url 'customer:update' %}">Update</a>
+    <a href="{% url 'customer:change' %}">Change</a>
+{% endblock %}

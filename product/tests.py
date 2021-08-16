@@ -11,7 +11,6 @@ class CategoryTest(TestCase):
         )
 
     def test_slug(self):
-
         self.assertEqual('mobile', 'mobile')
 
 
