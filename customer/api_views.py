@@ -15,7 +15,7 @@ class UserListView(APIView):
 
 
 class UserCreateView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         data = UserSerializer(data=request.data)
@@ -26,8 +26,7 @@ class UserCreateView(APIView):
 
 
 class UserUpdateView(APIView):
-    permission_classes = [IsOwnerOrReadOnly, ]
-
+    permission_classes = [IsOwnerOrReadOnly]
 
     def put(self, request, pk):
         user = User.objects.get(pk=pk)
@@ -40,7 +39,7 @@ class UserUpdateView(APIView):
 
 
 class UserDeleteView(APIView):
-    permission_classes = [ IsOwnerOrReadOnly, ]
+    permission_classes = [IsOwnerOrReadOnly]
 
     def delete(self, request, pk):
         user = User.objects.get(pk=pk)
