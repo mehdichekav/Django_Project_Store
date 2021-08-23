@@ -1,14 +1,20 @@
+{% load static %}
+{% load i18n %}
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
 <h5 style="background-color: #4e555b;color: #bdc1c2">Store Dez</h5>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="{% url 'product:home' %}">home</a>
+
+        <a class="nav-item nav-link active" href="{% url 'product:home' %}">{% trans 'home' %}</a>
         {% if request.user.is_authenticated %}
-            <a class="nav-item nav-link active" href="{% url 'customer:profile' %}">Profile</a>
-            <a class="nav-item nav-link active" href="{% url 'customer:logout' %}">logout</a>
+            <a class="nav-item nav-link active" href="{% url 'customer:profile' %}">{% trans 'Profile' %}</a>
+            <a class="nav-item nav-link active" href="{% url 'customer:logout' %}">{% trans 'logout' %}</a>
         {% else %}
-            <a class="nav-item nav-link active" href="{% url 'customer:login' %}">login</a>
-            <a class="nav-item nav-link active" href="{% url 'customer:register' %}">Register</a>
+            <a class="nav-item nav-link active" href="{% url 'customer:login' %}">{% trans 'login' %}</a>
+            <a class="nav-item nav-link active" href="{% url 'customer:register' %}">{% trans 'Register' %}</a>
         {% endif %}
+    <a class="nav-item nav-link active " style="margin-left: 800px" href="{% url 'customer:contact' %}">{% trans 'Contact us page'%}</a>
     </div>
+
 </nav>
 
