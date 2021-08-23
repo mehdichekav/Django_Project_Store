@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+{% block title %}
+    {% trans 'detail' %}
+{% endblock %}
 {% block content %}
     <table class="table ">
         <thead style="color: #000000">
         <tr>
-            <th scope="col">Number</th>
-            <th scope="col">Product</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Unit Price</th>
-            <th scope="col">Total Price</th>
-            <th scope="col">Remove</th>
+            <th scope="col">{% trans 'Number' %} </th>
+            <th scope="col">{% trans 'Product' %}</th>
+            <th scope="col">{% trans 'Quantity' %}</th>
+            <th scope="col">{% trans 'Unit Price' %}</th>
+            <th scope="col">{% trans 'Total Price' %}</th>
+            <th scope="col">{% trans 'Remove' %}</th>
         </tr>
         </thead>
         <tbody>
@@ -18,17 +21,18 @@
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ item.product }}</td>
                 <td><i class="gb gb_remove_circle mx-2 gb_s18 text-danger pointer remove_item"></i>
-                    <span>{{ item.quantity }}</span> <i
-                            class="gb gb_add_circle  mx-2 gb_s18 text-success pointer add_item"></i></td>
+                    <span>{{ item.quantity }}</span>
+                    <i class="gb gb_add_circle  mx-2 gb_s18 text-success pointer add_item"></i></td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.total_price }}</td>
-                <td><a href="{% url 'cart:cart_remove' item.product.id %}">Remove</a></td>
+                <td><a id="id" href="{% url 'cart:cart_remove' item.product.id %}">Remove</a></td>
+
             </tr>
         {% endfor %}
         <tr>
             <td>Total</td>
             <td colspan="3"></td>
-            <td>{{ item.get_total_price }}</td>
+            <td>{{ cart.get_total_price }}</td>
         </tr>
         </tbody>
     </table>
@@ -39,14 +43,26 @@
 {% block extrajs %}
     <script>
         $('.add_item').click(function () {
+            $.ajax({
+                url: 'cart:cart_add',
+                type: 'PATCH', data: {},
+                success: function (response) {
+
+
+                }
+            });
             let num = Number($(this).parent().children('span').text()) + 1
-            $(this).parent().children('span').text(String(num))
+                    $(this).parent().children('span').text(String(num))
         })
-         $('.remove_item').click(function () {
+
+        $('.remove_item').click(function () {
             let num = Number($(this).parent().children('span').text()) - 1
             $(this).parent().children('span').text(String(num))
         })
+
     </script>
+
+
 {% endblock %}
 
 
