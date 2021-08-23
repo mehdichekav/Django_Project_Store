@@ -1,15 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+
+        {% trans 'login' %}
+
+{% endblock %}
+{% block css %}
+
+
+    <link href="{% static 'customer/register.css' %}" rel="stylesheet">
+
+
+{% endblock %}
 
 {% block content %}
-    <p>login page</p>
+
+{#    <p>login page</p>#}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="login">
+        <button  type="submit"  class="btn btn-primary" value="login">{% trans 'Login' %}</button>
     </form>
 {% endblock %}
-
-
 
 
 

@@ -50,7 +50,7 @@ class UserRegistrationForm(forms.Form):
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'date_of_birth']
+        fields = ['first_name', 'last_name']
 
 
 class ProfileUpdateForm(forms.ModelForm):

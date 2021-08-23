@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+
+        {% trans 'change' %}
+
+{% endblock %}
+{% block css %}
+
+
+    <link href="{% static 'customer/update.css' %}" rel="stylesheet">
+
+
+{% endblock %}
 
 {% block content %}
 
-    <h3>change password</h3><hr/>
+{#    <h3>change password</h3><hr/>#}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Change">
+        <button  type="submit"  class="btn btn-primary" value="change">{% trans 'Change' %}</button>
     </form>
 
 {% endblock %}

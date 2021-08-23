@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+
+        {% trans 'register' %}
+
+{% endblock %}
+
+{% block css %}
+
+
+    <link href="{% static 'customer/register.css' %}" rel="stylesheet">
+
+
+{% endblock %}
 
 {% block content %}
-    <p>Register page</p>
+
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="register">
+        <button  type="submit"  class="btn btn-primary" value="register">{% trans 'register' %}</button>
     </form>
 {% endblock %}

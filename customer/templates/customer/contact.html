@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+
+        {% trans 'contact' %}
+
+{% endblock %}
+{% block content %}
+    <div class="container" style="width: 70%">
+        <div class="card bg-dark mt-5 p-5">
+            <form action="{% url 'customer:contact' %}" method="post" >
+                {% csrf_token %}
+                <h3 class="text-center" style="color:goldenrod">{% trans 'contact by' %}</h3>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="subject" name="subject">
+                    </div>
+                     <div class="col-6">
+                        <input type="email" class="form-control" placeholder="email" name="email">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <textarea name="message"  rows="4" class="form-control" style="margin-left: 15px; margin-right: 15px" placeholder="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger mt-3">{% trans 'Send Email' %}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

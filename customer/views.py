@@ -1,11 +1,8 @@
-from django.views import View
-from rest_framework import permissions
-from rest_framework import generics
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import UserLoginForm, UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import User, Profile
+from django.core.mail import EmailMessage
 
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -64,7 +61,7 @@ def user_update(request):
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
         if user_form and profile_form.is_valid():
-            user_form.save()
+            # user_form.save()
             profile_form.save()
             messages.success(request, 'update successfully', 'success')
             return redirect('customer:profile')
@@ -91,43 +88,18 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
     return render(request, 'customer/change.html', {'form': form})
 
-# class UserListApi(generics.ListAPIView):
-#     serializer_class = UserBriefSerializers
-#
-#     queryset = User.objects.all()
-#     permission_classes = [
-#         permissions.IsAuthenticated
-#     ]
-#
-#
-# class UserDetailApi(generics.RetrieveUpdateAPIView):
-#     serializer_class = UserSerializer
-#     # queryset = User.objects.all()
-#     permission_classes = [
-#         permissions
-#     ]
-#
-#
-# class AddressListApi(generics.ListAPIView):
-#     serializer_class = UserSerializer
-#
-#     # queryset = User.objects.all()
-#     def get_queryset(self):
-#         return Address.objects.filter(owner=self.request.user)
-#
-#     # permission_classes = [
-#     #     permissions.
-#     # ]
-#
-#
-# class AddressDetailApi(generics.RetrieveUpdateAPIView):
-#     serializer_class = UserSerializer
-#     # queryset = User.objects.all()
-#     permission_classes = [
-#         permissions.IsAuthenticatedOrReadOnly
-#     ]
 
-
-# def test(request):
-#     request.user
-#     return HttpResponse()
+def contact(request):
+    if request.method == 'POST':
+        subject = request.POST['subject']
+        email = request.POST['email']
+        msg = request.POST['message']
+        body = subject + '\n' + email + '\n' + msg
+        form = EmailMessage(
+            'contact form',
+            body,
+            'test',
+            ('m.chekave.jazireh@gmail.com',),
+        )
+        form.send(fail_silently=False)
+    return render(request, 'customer/contact.html')

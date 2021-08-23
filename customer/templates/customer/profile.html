@@ -1,28 +1,74 @@
-{#{% extends 'base.html' %}#}
-{##}
-{#{% block content %}#}
-{#<h1>profile</h1><hr/>#}
-{#<table>#}
-{#{% csrf_token %}#}
-{#<tr>#}
-{#    <th>first name: {{ profile.user.first_name }}</th>#}
-{#</tr>#}
-{#    <tr>#}
-{#    <th>last name: {{ profile.user.last_name }}</th>#}
-{#</tr>#}
-{#<tr>#}
-{#    <th>phone: {{ profile.user.phone }}</th>#}
-{#</tr>#}
-{#<tr>#}
-{#    <th>Email: {{ profile.user.email }}</th>#}
-{#</tr>#}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+
+    {% trans 'profile' %}
+
+{% endblock %}
+{% load static %}
+{% block content %}
+
+{% block css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="{% static 'customer/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 p-2" style="min-height: 85vh">
+            <div class="panel text-center " id="side-panel">
+                <div class="card">
+                    <div class="card-header m-0 p-0">
+                        <a class="card-link " data-toggle="collapse" href=""><button class="btn btn-block btn-secondary">{% trans 'Profile' %}</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card mt-2 ">
+                    <div class="card-header m-0 p-0">
+                        <a class="card-link " data-toggle="collapse" href="#users"><button class="btn btn-block btn-secondary">
+                            {% trans 'Users' %}</button>
+                        </a>
+                    </div>
+                    <div id="users" class="collapse " data-parent="#side-panel">
+                        <div class="list-group-item">
+                            <button class="btn btn-block btn-light"><a href="{% url 'customer:update' %}">{% trans 'Update User' %}</a></button>
+                            <button class="btn btn-block btn-light"><a href="{% url 'customer:change' %}">{% trans 'Change Password' %}</a></button>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+    </div>
+</div>
+    <div class="col-9 bg-secondary " style="height: 550px">
+
+           <table style="color: white; font-size: 15px">
+{% csrf_token %}
+<tr >
+    <th >first name: {{ profile.user.first_name }}</th>
+</tr>
+    <tr>
+    <th>last name: {{ profile.user.last_name }}</th>
+</tr>
+<tr>
+    <th>phone: {{ profile.user.phone }}</th>
+</tr>
+<tr>
+    <th>Email: {{ profile.user.email }}</th>
+</tr>
 {#<tr>#}
 {#    <th>Birth of Date: {{ profile.user.date_of_birth }}</th>#}
 {#</tr>#}
-{#<tr>#}
-{#    <th>Address: {{ profile.address }}</th>#}
-{#</tr>#}
-{#</table>#}
-{#    <a href="{% url 'customer:update' %}">Update</a>#}
-{#    <a href="{% url 'customer:change' %}">Change</a>#}
-{#{% endblock %}#}
+<tr>
+    <th>Address: {{ profile.address }}</th>
+</tr>
+</table>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+

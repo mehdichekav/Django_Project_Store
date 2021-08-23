@@ -30,6 +30,7 @@ urlpatterns = [
     path('update/', views.user_update, name='update'),
     path('change/', views.change_password, name='change'),
     path('test/', TemplateView.as_view(template_name='text.html')),
+    path('contact/', views.contact, name='contact'),
     path('api/', include(api_urls)),
     # path('user/', UserListApi.as_view(), name='user'),
     # path('user/<int:pk>', UserDetailApi.as_view(), name='user'),

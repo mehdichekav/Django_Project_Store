@@ -9,14 +9,15 @@ from django.utils.translation import gettext as _
 
 
 class User(AbstractBaseUser):
-    first_name = models.CharField(max_length=100, blank=True, null=True, verbose_name=_('first_name'),
-                                  help_text=_('enter your first_name'))
-    last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name=_('last_name'),
-                                 help_text=_('enter your last_name'))
-    email = models.CharField(max_length=100, unique=True, verbose_name=_('Email'), help_text=_('enter your email'))
-    phone = models.CharField(max_length=100, verbose_name=_('phone'), help_text=_('enter your phone'))
+    first_name = models.CharField(max_length=100, blank=True, null=True, verbose_name=_('first_name')
+
+                                  )
+    last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name=_('last_name')
+                                 )
+    email = models.CharField(max_length=100, unique=True, verbose_name=_('Email'))
+    phone = models.CharField(max_length=100, verbose_name=_('phone'))
     date_of_birth = models.DateField(blank=True, null=True, verbose_name=_('date_of_birth'),
-                                     help_text=_('enter your date_of_birth'))
+                                    )
     is_active = models.BooleanField(default=True)
     objects = MyUserManager()
     is_admin = models.BooleanField(default=False)
@@ -44,7 +45,8 @@ class User(AbstractBaseUser):
 #     pass
 
 class Address(BaseModel):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner', verbose_name=_('owner'), help_text=_('enter your owner'))
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner', verbose_name=_('owner'),
+                              help_text=_('enter your owner'))
     lat = models.FloatField(blank=True, null=True, verbose_name=_('lat'), help_text=_('enter your lat'))
     lng = models.FloatField(blank=True, null=True, verbose_name=_('lng'), help_text=_('enter your lng'))
     country = models.CharField(max_length=50, verbose_name=_('country'), help_text=_('enter your country'))
@@ -66,9 +68,8 @@ class Address(BaseModel):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('user'))
-    phone = models.CharField(max_length=100, verbose_name=_('phone'), help_text=_('enter your phone'))
-    address = models.TextField(verbose_name=_('address'),
-                                   help_text=_('enter your address'), null=True, blank=True)
+    phone = models.CharField(max_length=100, verbose_name=_('phone'))
+    address = models.CharField(max_length=300, verbose_name=_('address'), null=True, blank=True)
 
     def __str__(self):
         return str(self.user)
