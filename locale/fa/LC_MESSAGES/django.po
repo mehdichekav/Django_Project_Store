@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-02 16:28+0430\n"
+"POT-Creation-Date: 2021-08-23 18:14+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,77 +18,439 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\product\models.py:7 .\product\models.py:20
-msgid "name"
+#: .\cart\templates\cart\detail.html:4
+#, fuzzy
+#| msgid " detail"
+msgid "detail"
+msgstr "جزئیات"
+
+#: .\cart\templates\cart\detail.html:10
+msgid "Number"
+msgstr "شماره"
+
+#: .\cart\templates\cart\detail.html:11
+msgid "Product"
+msgstr "فروشگاه"
+
+#: .\cart\templates\cart\detail.html:12
+msgid "Quantity"
 msgstr ""
 
-#: .\product\models.py:8 .\product\models.py:21
-msgid "slug"
-msgstr ""
+#: .\cart\templates\cart\detail.html:13
+msgid "Unit Price"
+msgstr "قیمت"
 
-#: .\product\models.py:19 .\product\views.py:9 .\product\views.py:15
+#: .\cart\templates\cart\detail.html:14
+msgid "Total Price"
+msgstr "قیمت نهایی"
+
+#: .\cart\templates\cart\detail.html:15
+msgid "Remove"
+msgstr "پاک کننده"
+
+#: .\core\models.py:29 .\orders\models.py:15
+msgid "created"
+msgstr "ایجاد کننده"
+
+#: .\core\models.py:30 .\customer\templates\customer\update.html:5
+msgid "update"
+msgstr "بروزرسانی"
+
+#: .\customer\models.py:12
+msgid "first_name"
+msgstr "نام"
+
+#: .\customer\models.py:15
+msgid "last_name"
+msgstr "نام خانوادگی"
+
+#: .\customer\models.py:17
+msgid "Email"
+msgstr "پست الکترونیک"
+
+#: .\customer\models.py:18 .\customer\models.py:71
+msgid "phone"
+msgstr "تلفن همراه"
+
+#: .\customer\models.py:19
+msgid "date_of_birth"
+msgstr "تاریخ تولد"
+
+#: .\customer\models.py:48
+msgid "owner"
+msgstr "مالک"
+
+#: .\customer\models.py:49
+msgid "enter your owner"
+msgstr " نام مالک را وارد نمایید"
+
+#: .\customer\models.py:50
+msgid "lat"
+msgstr "ظول جغرافیایی"
+
+#: .\customer\models.py:50
+msgid "enter your lat"
+msgstr "طول جغرافیایی را وارد نمایید"
+
+#: .\customer\models.py:51
+msgid "lng"
+msgstr "عرض جغرافیایی"
+
+#: .\customer\models.py:51
+msgid "enter your lng"
+msgstr "عرض جغرافیایی را وارد نمایید"
+
+#: .\customer\models.py:52
+msgid "country"
+msgstr "کشور"
+
+#: .\customer\models.py:52
+msgid "enter your country"
+msgstr "نام کشور را وارد نمایید"
+
+#: .\customer\models.py:53
+msgid "city"
+msgstr "شهر"
+
+#: .\customer\models.py:53
+msgid "enter your city"
+msgstr "نام شهر را وارد نمایید"
+
+#: .\customer\models.py:54
+msgid "state"
+msgstr "استان"
+
+#: .\customer\models.py:54
+msgid "enter your state"
+msgstr "نام استان را وارد نمایید"
+
+#: .\customer\models.py:55 .\product\models.py:29 .\product\models.py:47
+msgid "description"
+msgstr "توضیحات"
+
+#: .\customer\models.py:56
+msgid "enter your description"
+msgstr "توضیحات خود را وارد نمایید"
+
+#: .\customer\models.py:57
+msgid "zip_code"
+msgstr "کدپستی"
+
+#: .\customer\models.py:57
+msgid "enter your zop_cide"
+msgstr "کدپستی خود را وارد نمایید"
+
+#: .\customer\models.py:58
+msgid "Alley"
+msgstr "کوچه"
+
+#: .\customer\models.py:58
+msgid "enter your Alley"
+msgstr "نام کوچه خود را وارد نمایید"
+
+#: .\customer\models.py:59
+msgid "plaque"
+msgstr "پلاک"
+
+#: .\customer\models.py:59
+msgid "enter your plaque"
+msgstr "نام پلاک خود را وارد نمایید"
+
+#: .\customer\models.py:70 .\orders\models.py:14
+msgid "user"
+msgstr "کاربر"
+
+#: .\customer\models.py:72
+msgid "address"
+msgstr "آدرس"
+
+#: .\customer\templates\customer\change.html:6
+msgid "change"
+msgstr "تغییر"
+
+#: .\customer\templates\customer\change.html:23
+#: .\venv\Lib\site-packages\django\forms\widgets.py:405
+msgid "Change"
+msgstr "تغییر"
+
+#: .\customer\templates\customer\contact.html:5
+msgid "contact"
+msgstr "ارتباط با ما"
+
+#: .\customer\templates\customer\contact.html:13
+msgid "contact by"
+msgstr "ارتلاط با ما"
+
+#: .\customer\templates\customer\contact.html:26
+msgid "Send Email"
+msgstr "ارسال ایمیل"
+
+#: .\customer\templates\customer\login.html:6 .\templates\inc\navbar.html:13
+msgid "login"
+msgstr "ورود"
+
+#: .\customer\templates\customer\login.html:23
+msgid "Login"
+msgstr "خروج"
+
+#: .\customer\templates\customer\profile.html:5
+msgid "profile"
+msgstr "حساب کاربری"
+
+#: .\customer\templates\customer\profile.html:22 .\templates\inc\navbar.html:10
+msgid "Profile"
+msgstr "حساب کاربری"
+
+#: .\customer\templates\customer\profile.html:30
+msgid "Users"
+msgstr "کاربر"
+
+#: .\customer\templates\customer\profile.html:35
+msgid "Update User"
+msgstr "بروزرسانی کاربر"
+
+#: .\customer\templates\customer\profile.html:36
+msgid "Change Password"
+msgstr "تغییر رمز ورود"
+
+#: .\customer\templates\customer\register.html:6
+#: .\customer\templates\customer\register.html:23
+msgid "register"
+msgstr "ثبت نام"
+
+#: .\customer\templates\customer\update.html:22
+msgid "Update"
+msgstr "بروزرسانی"
+
+#: .\orders\models.py:13 .\orders\models.py:35
+msgid "orders"
+msgstr "سفارشات"
+
+#: .\orders\models.py:14
+msgid "name is user"
+msgstr "نام کاربر"
+
+#: .\orders\models.py:16
+msgid "updated"
+msgstr "بروزرسانی"
+
+#: .\orders\models.py:17
+msgid "paid"
+msgstr "پرداخت شده"
+
+#: .\orders\models.py:18 .\orders\models.py:56 .\product\models.py:42
+#: .\product\models.py:43
+msgid "discount"
+msgstr "تخفیف"
+
+#: .\orders\models.py:36
+msgid "orderes"
+msgstr "سفارشات"
+
+#: .\orders\models.py:38
+msgid "product"
+msgstr "فروشگاه"
+
+#: .\orders\models.py:39 .\product\models.py:40 .\product\views.py:22
+#: .\product\views.py:29
 msgid "products"
 msgstr ""
 
-#: .\product\models.py:19
-msgid "category"
+#: .\orders\models.py:40 .\product\models.py:48
+msgid "price"
+msgstr "قیمت"
+
+#: .\orders\models.py:41
+msgid "enter your prices"
+msgstr "قیمت را وارد نمایید"
+
+#: .\orders\models.py:42
+msgid "quantity"
 msgstr ""
 
-#: .\product\models.py:20
+#: .\orders\models.py:52
+msgid "code"
+msgstr "رمز"
+
+#: .\orders\models.py:52
+msgid "enter your code"
+msgstr "رمز خود را وارد نمایید"
+
+#: .\orders\models.py:53
+msgid "valid_from"
+msgstr "معتبر از"
+
+#: .\orders\models.py:54
+msgid "valid_to"
+msgstr "ممعتبر-تا"
+
+#: .\orders\models.py:57
+msgid "active"
+msgstr "فعال"
+
+#: .\orders\templates\orders\order.html:5
+msgid " order"
+msgstr "سفارش"
+
+#: .\product\models.py:9 .\product\models.py:44 .\product\models.py:71
+msgid "name"
+msgstr "نام"
+
+#: .\product\models.py:9 .\product\models.py:44
 msgid "enter your name"
+msgstr "نام را وارد نمایید"
+
+#: .\product\models.py:10 .\product\models.py:45
+msgid "slug"
 msgstr ""
 
-#: .\product\models.py:21
+#: .\product\models.py:10 .\product\models.py:45
 msgid "slug in project"
 msgstr ""
 
-#: .\product\models.py:22
+#: .\product\models.py:24
+msgid "title"
+msgstr "عنوان"
+
+#: .\product\models.py:24
+msgid "enter your tittle"
+msgstr "عنوان خود را وارد نمایید"
+
+#: .\product\models.py:25
+msgid "Deduction_from_the_price"
+msgstr "کسر از قیمت"
+
+#: .\product\models.py:26
+msgid "enter your Deduction_from_the_price"
+msgstr "کسر از قیمت"
+
+#: .\product\models.py:27
+msgid "Cash"
+msgstr "پول نقد"
+
+#: .\product\models.py:28
+msgid "enter your Cash"
+msgstr "آیا پول نقد دارید"
+
+#: .\product\models.py:29 .\product\models.py:47
+msgid "Additional product description"
+msgstr "توضیحات محصول اضافی"
+
+#: .\product\models.py:41
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\product\models.py:46
 msgid "enter your image"
 msgstr ""
 
-#: .\product\models.py:23
-msgid "description"
-msgstr ""
-
-#: .\product\models.py:23
-msgid "Additional product description"
-msgstr ""
-
-#: .\product\models.py:24
-msgid "price"
-msgstr ""
-
-#: .\product\models.py:25
-msgid "discount"
-msgstr ""
-
-#: .\product\models.py:26
+#: .\product\models.py:50
 msgid "available"
-msgstr ""
+msgstr "در دسترس"
 
-#: .\product\models.py:26
+#: .\product\models.py:50
 msgid "This product is available in the store"
+msgstr "این محصول در فروشگاه موجود است"
+
+#: .\product\models.py:72
+msgid "image"
 msgstr ""
 
-#: .\product\templates\product\home.html:6
-msgid "home"
+#: .\product\templates\product\detail.html:5
+msgid " detail"
+msgstr "جزئیات"
+
+#: .\product\templates\product\home.html:4
+msgid " home"
+msgstr "خانه"
+
+#: .\product\views.py:22
+msgid "categories"
+msgstr "دسته بندی ها"
+
+#: .\product\views.py:22
+msgid "gallery"
 msgstr ""
+
+#: .\product\views.py:29
+msgid "form"
+msgstr "فرم"
+
+#: .\templates\inc\footer.html:49
+msgid "© 2021 Copyright: Store_Dez.com"
+msgstr "حق چاپ 2021: Store_Dez.com"
+
+#: .\templates\inc\navbar.html:8
+msgid "home"
+msgstr "خانه"
+
+#: .\templates\inc\navbar.html:11
+msgid "logout"
+msgstr "خروج"
+
+#: .\templates\inc\navbar.html:14
+msgid "Register"
+msgstr "ثبت نام"
+
+#: .\templates\inc\navbar.html:16
+msgid "Contact us page"
+msgstr "صفحه ارتباط با ما"
+
+#: .\templates\registration\password_change_form.html:4
+msgid "Documentation"
+msgstr "مستندات"
+
+#: .\templates\registration\password_change_form.html:4
+msgid "Change password"
+msgstr "تغییر رمز ورود"
+
+#: .\templates\registration\password_change_form.html:4
+msgid "Log out"
+msgstr "خروج"
+
+#: .\templates\registration\password_change_form.html:7
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\registration\password_change_form.html:8
+msgid "Password change"
+msgstr "تغییر رمز ورود"
+
+#: .\templates\registration\password_change_form.html:18
+msgid "Please correct the error below."
+msgstr "لطفاً خطای زیر را اصلاح کنید."
+
+#: .\templates\registration\password_change_form.html:18
+msgid "Please correct the errors below."
+msgstr "لطفاً خطای زیر را اصلاح کنید."
+
+#: .\templates\registration\password_change_form.html:23
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"لطفاً به خاطر امنیت گذرواژه قدیمی خود را وارد کنید و سپس رمز جدید خود را وارد "
+"کنید دوبار رمز عبور تا بتوانیم تأیید کنیم که شما آن را به درستی وارد کرده اید"
+
+#: .\templates\registration\password_change_form.html:51
+msgid "Change my password"
+msgstr "رمز من را تغییر دهید"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "پیام ها"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr ""
+msgstr "نقشه سایت"
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "فایلهای استاتیک"
 
 #: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
 msgid "Syndication"
-msgstr ""
+msgstr "اتحادیه"
 
 #. Translators: String used to replace omitted page numbers in elided page
 #. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
@@ -98,7 +460,7 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:51
 msgid "That page number is not an integer"
-msgstr ""
+msgstr "آن شماره صفحه یک عدد صحیح نیست"
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:53
 msgid "That page number is less than 1"
@@ -106,11 +468,11 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:58
 msgid "That page contains no results"
-msgstr ""
+msgstr "آن صفحه کمتر از 1 است"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:22
 msgid "Enter a valid value."
-msgstr ""
+msgstr "یک مقدار معتبر وارد کنید."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:93
 #: .\venv\Lib\site-packages\django\forms\fields.py:664
@@ -198,7 +560,7 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\fields.py:292
 #: .\venv\Lib\site-packages\django\forms\fields.py:327
 msgid "Enter a number."
-msgstr ""
+msgstr "عدد را وارد نمایید"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:434
 #, python-format
@@ -685,10 +1047,6 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:404
 msgid "Currently"
-msgstr ""
-
-#: .\venv\Lib\site-packages\django\forms\widgets.py:405
-msgid "Change"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:714
