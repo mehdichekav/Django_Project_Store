@@ -22,7 +22,7 @@ class Category(models.Model):
 
 class Discount(BaseModel):
     title = models.CharField(max_length=100, verbose_name=_('title'), help_text=_('enter your tittle'))
-    Deduction_from_the_price = models.IntegerField( verbose_name=_('Deduction_from_the_price'),
+    Deduction_from_the_price = models.IntegerField(verbose_name=_('Deduction_from_the_price'),
                                                    help_text=_('enter your Deduction_from_the_price'))  # کسر از قیمت
     Cash = models.IntegerField(verbose_name=_('Cash'),
                                help_text=_('enter your Cash'))  # نقدی
@@ -65,3 +65,11 @@ class Product(models.Model):
     #     disc = self.discount or 0
     #     discounted_price = self.price * disc // 100
     #     return self.price - discounted_price
+
+
+class Gallery(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True, verbose_name=_('name'))
+    image = models.ImageField(upload_to='gallery/', blank=True, verbose_name=_('image'))
+
+    def __str__(self):
+        return self.name

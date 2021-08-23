@@ -3,7 +3,7 @@ from .models import Product, Category, Discount
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    product = serializers.SerializerMethodField()
+    # product = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
@@ -24,3 +24,4 @@ class DiscountSerializers(serializers.ModelSerializer):
     class Meta:
         model = Discount
         fields = '__all__'
+

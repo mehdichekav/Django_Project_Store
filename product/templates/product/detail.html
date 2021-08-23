@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
 
+        {% trans ' detail' %}
+
+{% endblock %}
 {% block content %}
-    <p>mehdi</p>
+
+     <div class="container-fluid">
+    <div class="row-cols-4">
     <h3>{{ products.name }}</h3>
     <small>{{ product.created }}</small>
-    <img src="{{ products.image.url }}" class="card-img-top" style="width: 400px;height: 400px" alt="...">
-    <p>{{ products.descrption }}</p><br/><br/>
+    <img src="{{ products.image.url }}" class="card-img-top" style="width: 250px;height: 250px; text-align: center;box-shadow: 1px 2px dimgrey" alt="...">
+    <p>{{ products.description }}</p><br/><br/>
     <form action="{% url 'cart:cart_add' products.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" style="width: 8rem" value="add to cart">
     </form>
+    </div>
+     </div>
 {% endblock %}

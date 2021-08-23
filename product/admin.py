@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Discount
+from .models import Category, Product, Discount, Gallery
 
 
 @admin.register(Category)
@@ -31,3 +31,4 @@ class ProductAdmin(admin.ModelAdmin):
 #     list_display = ('title', 'cash', 'Deduction_from_the_price', 'description')
 #     list_editable = ('Cash', 'Deduction_from_the_price')
 admin.site.register(Discount)
+admin.site.register(Gallery)

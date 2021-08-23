@@ -26,7 +26,8 @@ urlpatterns = [
     path('category/<slug:slug>/', views.home, name='category filter'),
     path('product_list/', views.product_list_api),
     path('product_detail_api/<str:pk>', ProductPUTApi.as_view()),
-    path('product_api/', include(api_urls)),
+    path('search/', views.product_search, name='product_search'),
+    path('product-api/', include(api_urls)),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -5,6 +5,7 @@ from rest_framework import status
 from .models import Product, Category, Discount
 from rest_framework.permissions import IsAuthenticated
 from permissions import IsOwnerOrReadOnly
+from rest_framework import generics
 
 
 #order
@@ -92,6 +93,12 @@ class CategoryDeleteView(APIView):
         category.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+# Discount
+class DiscountView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = DiscountSerializers
+    queryset = Discount.objects.all()
+    lookup_field = 'tittle'
 
 
 

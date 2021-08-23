@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% block title %}
+        {% trans ' home' %}
+{% endblock %}
 {% load static %}
 
-
-{% block title %} {% trans 'home' %} {% endblock %}
 {% block css %}
+
     <link href="{{ 'home.html'}}" rel="stylesheet">
 {% endblock %}
 {% block script %}
@@ -13,63 +15,55 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {% endblock %}
-{#{% block content %}#}
-{##}
-{##}
-{#<div class="container-fluid bgimg min-vh-75">#}
-{#    <div class="row pr-lg-5 mr-3 header-text">#}
-{#        <p style=" position: absolute; left: 15px; color: #05137d ; padding-top: 3vh">Store Dez</p>#}
-{##}
-{##}
-{#    </div>#}
-{#    <div class="row ">#}
-{#        <p style="position: absolute; left: 40px; color: #030202; ">Open from 9am to 11pm</p><hr/>#}
-{#        <img class="fa-text-width " src="{% static 'img/ممانعت-از-تغییر-عکس-پس-زمینه-2-600x364.jpg' %}" alt="My image" style="width: 40%; height: 40%;#}
-{#            ">#}
-{##}
-{#    </div>#}
-{##}
-{##}
-{#</div>#}
-{#{% endblock %}#}
-{##}
+
+
 {% block content %}
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="box-shadow: 1px 2px dimgrey,1px 2px dimgrey">
+        <ol class="carousel-indicators">
+            <li  data-bs-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li  data-bs-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li  data-bs-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            {% for i in gallery %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                <img src="{{ i.image.url }}" style="width: auto;height: 300px" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ i.name }}</h5>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div><br><br>
+
+
 {% for category in categories %}
     <a href="{{ category.get_absolute_url }}" class="btn btn-primary">{{ category.name }}</a>
-{% endfor %}
-
-    <br/><br/><br/>
+{% endfor %} <br/><br/><br/>
 
 
 {% for product in products %}
- <div class="card" style="width: 18rem; display: inline-block;margin-left: 2rem">
+ <div class="card" style="width: 18rem; display: inline-block;margin-left: 2rem; box-shadow: 1px 2px dimgrey">
     <img src="{{ product.image.url }}" class="card-img-top" alt="...">
     <div class="card-body">
         <a href="{{ product.get_absolute_url }}" class="card-title">{{ product.name }}</a>
-
-
     </div>
  </div>
 
 {% endfor %}
-{# <p class="card-text">Some electronic items available in the store.</p>#}
-{#        <p class="card-text">{{ product.price }}</p>#}
-{#        <p class="card-text">{{ product.final_price }}</p>#}
-{#        <a href="#" class="btn btn-primary"> Go </a>#}
-{#<div class="container-fluid bgimg min-vh-75">#}
-{#    <div class="row pr-lg-5 mr-3 header-text">#}
-{#        <p style=" position: absolute; left: 15px; color: #05137d ; padding-top: 3vh">Store Dez</p>#}
-{##}
-{##}
-{#    </div>#}
-{#    <div class="row ">#}
-{#        <p style="position: absolute; left: 40px; color: #030202; ">Open from 9am to 11pm</p><hr/>#}
-{#        <img  class="fa-text-width " src="{% static 'img/ممانعت-از-تغییر-عکس-پس-زمینه-2-600x364.jpg' %}" alt="My image" style="width: 40%; height: 40%;#}
-{#            ">#}
-{##}
-{#    </div>#}
-{##}
-{##}
-{#</div>#}
+
+
 {% endblock %}
 
