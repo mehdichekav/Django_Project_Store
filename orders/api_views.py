@@ -1,3 +1,4 @@
+from rest_framework import generics
 from rest_framework.views import APIView
 from .serializers import OrderSerializer, OrderItemSerializers, CouponSerializers
 from rest_framework.response import Response
@@ -7,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from permissions import IsOwnerOrReadOnly
 
 
-#order
+# order
 
 class OrderListView(APIView):
     def get(self, request):
@@ -30,7 +31,6 @@ class OrderCreateView(APIView):
 class OrderUpdateView(APIView):
     permission_classes = [IsOwnerOrReadOnly, ]
 
-
     def put(self, request, pk):
         order = Order.objects.get(pk=pk)
         self.check_object_permissions(request, order)
@@ -42,13 +42,14 @@ class OrderUpdateView(APIView):
 
 
 class OrderDeleteView(APIView):
-    permission_classes = [ IsOwnerOrReadOnly, ]
+    permission_classes = [IsOwnerOrReadOnly, ]
 
     def delete(self, request, pk):
         order = Order.objects.get(pk=pk)
         self.check_object_permissions(request, order)
         order.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 # order item
 
@@ -93,31 +94,9 @@ class OrderItemDeleteView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Coupon
+class CouponView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CouponSerializers
+    queryset = Coupon.objects.all()
+    lookup_field = 'code'
+    lookup_url_kwarg = 'code'

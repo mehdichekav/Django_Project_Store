@@ -4,15 +4,15 @@ from .models import Order, OrderItem, Coupon
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    order = serializers.SerializerMethodField()
+    # owner = serializers.SerializerMethodField()
 
     class Meta:
         model = Order
         fields = '__all__'
 
-    def get_order(self, obj):
+    def get_owner(self, obj):
         result = obj.owner.all()
-        return OrderItemSerializers(instance=result, many=True).data
+        return OrderItemSerializers(instance=result).data
 
 
 class OrderItemSerializers(serializers.ModelSerializer):
@@ -25,3 +25,4 @@ class CouponSerializers(serializers.ModelSerializer):
     class Meta:
         model = Coupon
         fields = '__all__'
+

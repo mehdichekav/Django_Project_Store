@@ -15,6 +15,8 @@ api_urls = [
     path('orderitem/update/<int:pk>/', api_views.OrderItemUpdateView.as_view()),
     path('orderitem/delete/<int:pk>/', api_views.OrderItemDeleteView.as_view()),
 
+    path('coupen/', api_views.CouponView.as_view()),
+
 ]
 
 urlpatterns = [
